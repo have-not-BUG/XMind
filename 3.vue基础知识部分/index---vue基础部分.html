@@ -873,8 +873,34 @@
 </div>
 
 
+<div id="stopSettimeout">
+<button id="showNum" v-on:click="showCount" >  开始计数 </button>
+
+<button id="stopNum" v-on:click="stopCount"> 停止 </button>
+</div>
 
 
+<script>
+    var demo= new Vue({
+    el:"#stopSettimeout",
+    data:{
+       showCountClock:null 
+    },  
+    methods:{
+
+        showCount:function(){
+            var i=0;         
+            this.showCountClock=setInterval(function(){
+                console.log(i+=1) ;
+            },1000);
+        },
+        stopCount:function(){
+            clearInterval(this.showCountClock)
+        }
+
+    }
+});
+</script>
 
 
 
