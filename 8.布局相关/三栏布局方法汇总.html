@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        .left, .right {
+            width: 300px;
+        }
+
+        .left {
+            background: lawngreen;
+        }
+        .right{
+            background: red;
+        }
+        .center{
+            background: cornflowerblue;
+        }
+        .wrap>div{
+            min-height: 100px;
+            text-align: left;
+            line-height: 100px;
+        }
+        .layout{
+            margin-top:20px;
+        }
+        .layout.float .wrap .left{
+            float: left;
+        }
+        .layout.float .wrap .right{
+            float: right;
+        }
+        .layout.float .wrap .center{
+            margin: 0 300px;
+        }
+        .layout.float .wrap:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .layout.position .wrap{
+            position: relative;
+        }
+        .layout.position .wrap>div{
+            position: absolute;
+            top:0;
+        }
+        .layout.position .wrap .left{
+            left: 0;
+        }
+        .layout.position .wrap .right{
+            right: 0;
+        }
+        .layout.position .wrap .center{
+            left: 300px;
+            right: 300px;
+        }
+        .layout.flex{
+            margin-top: 140px;
+        }
+        .layout.flex .wrap{
+            display: flex;
+        }
+        .layout.flex .wrap .center{
+            flex: 1;
+        }
+        .layout.table .wrap{
+            display: table;
+            width: 100%;
+        }
+
+        .layout.table .wrap>div{
+            display: table-cell;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<section class="layout float">
+    <article class="wrap">
+        <div class="left">左</div>
+        <div class="right">右</div>
+        <div class="center">1、浮动方案-中</div>
+    </article>
+</section>
+
+<section class="layout position">
+    <article class="wrap">
+        <div class="left">左</div>
+        <div class="center">2、绝对定位方案-中</div>
+        <div class="right">右</div>
+    </article>
+</section>
+<section class="layout flex">
+    <article class="wrap">
+        <div class="left">左</div>
+        <div class="center">3、flex方案-中</div>
+        <div class="right">右</div>
+    </article>
+</section>
+<section class="layout table">
+    <article class="wrap">
+        <div class="left">左</div>
+        <div class="center">4、table方案-中</div>
+        <div class="right">右</div>
+    </article>
+</section>
+<section class="layout table">
+    <article class="wrap">
+        <div class="left">左</div>
+        <div class="center">4、table方案-中</div>
+        <div class="right">右</div>
+    </article>
+</section>
+
+</body>
+</html>
